@@ -1,0 +1,21 @@
+{
+    "name": "Notas Fiscais",
+    "description": "Sistema de Gestão de Notas Fiscais",
+    "authors": [
+        {
+            "name": "Ricardo Jesus",
+            "email": "ricojesus@hotmai.com"
+        }
+    ],
+
+    "require": {
+        "rain/raintpl": ">=3.0.0",
+        "slim/slim": "3.*"
+    },
+
+    "autoload" : {
+        "psr-4" : {
+            "Notas\\" : "vendor/local/classes"
+        }
+    }
+}
