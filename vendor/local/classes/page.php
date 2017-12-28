@@ -1,6 +1,6 @@
 <?php 
 
-namespace notas;
+namespace Construtora;
 use Rain\Tpl;
 
 class Page {
@@ -22,7 +22,7 @@ class Page {
 		    "base_url"      => null,
 		    "tpl_dir"       => $_SERVER['DOCUMENT_ROOT']."/construtora/views/",
 		    "cache_dir"     => $_SERVER['DOCUMENT_ROOT']."/construtora/views-cache/",
-		    "debug"         => false
+		    "php_enabled"   => true,
 		);
 
 		Tpl::configure( $config );

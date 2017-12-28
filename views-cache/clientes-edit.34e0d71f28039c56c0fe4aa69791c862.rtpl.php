@@ -24,7 +24,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/clientes/<?php echo htmlspecialchars( $cliente["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post">
+        <form role="form" action="../clientes/<?php echo htmlspecialchars( $cliente["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post">
           <input type="hidden" name="id" value="<?php echo htmlspecialchars( $cliente["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
 
           <div class="box-body">
@@ -54,7 +54,7 @@
           <!-- /.box-body -->
           <div class="box-footer">
             <button type="submit" class="btn btn-primary">Gravar</button>
-            <a href="/construtora/clientes" class="btn btn-normal">Voltar</a>
+            <a href="../clientes" class="btn btn-normal">Voltar</a>
           </div>
         </form>
       </div>

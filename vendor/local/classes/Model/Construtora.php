@@ -7,18 +7,18 @@ require_once 'vendor/autoload.php';
 use Construtora\DB\Sql;
 use Construtora\Model;
 
-class Cliente extends Model {
+class Construtora extends Model {
 
-	const SESSION = "Cliente";
+	const SESSION = "Construtora";
 
 	protected $fields = [
-		"id", "nome", "construtora_id", "telefone", "celular"
+		"id", "nome", "responsavel", "telefone", "celular"
 	];
 
 	public function __construct(){
 		$this->setid(0);
 		$this->setnome(null);
-		$this->setconstrutora_id(0);
+		$this->setresponsavel(0);
 		$this->settelefone(null);
 		$this->setcelular(null);
 
@@ -27,7 +27,7 @@ class Cliente extends Model {
 	public static function listAll(){
 		$sql = new Sql();
 
-		return $sql->select("select * from cliente order by nome");
+		return $sql->select("select * from construtora order by nome");
 	}
 
 	public function save(){
@@ -37,16 +37,16 @@ class Cliente extends Model {
 
 		if ((int)$this->getid() === 0){
 		
-			$sql->query("insert into cliente (nome, construtora_id, telefone, celular, status) values (:NOME, 1, :TELEFONE, :CELULAR, 1)", array(
+			$sql->query("insert into construtora (nome, responsavel, telefone, celular, status) values (:NOME, :RESPONSAVEL, :TELEFONE, :CELULAR, 1)", array(
 				':NOME' => $this->getnome(),			
-				//':CONSTRUTORA_ID' => $this->getconstrutora_id(),
+				':RESPONSAVEL' => $this->getresponsavel(),
 				':TELEFONE' => $this->gettelefone(),
 				':CELULAR' => $this->getcelular()
 			));
 		}else{
-			$sql->query("update cliente set nome = :NOME, construtora_id = 1, telefone = :TELEFONE, celular = :CELULAR where id = :ID", array(
+			$sql->query("update construtora set nome = :NOME, responsavel = :RESPONSAVEL, telefone = :TELEFONE, celular = :CELULAR where id = :ID", array(
 				':NOME' => $this->getnome(),			
-				//':CONSTRUTORA_ID' => $this->getconstrutora_id(),
+				':RESPONSAVEL' => $this->getresponsavel(),
 				':ID' => $this->getid(),
 				':TELEFONE' => $this->gettelefone(),
 				':CELULAR' => $this->getcelular()
@@ -57,14 +57,14 @@ class Cliente extends Model {
 	public function get($id){
 		$sql = new Sql();
 
-		$result = $sql->select("select * from cliente where id = :ID", array(
+		$result = $sql->select("select * from construtora where id = :ID", array(
 			':ID' => $id
 		));
 
 		if (count($result) > 0){
 			$this->setData($result[0]);
 		}else{
-			$this->setData(new Cliente());
+			$this->setData(new Construtora());
 		}
 	}
 }

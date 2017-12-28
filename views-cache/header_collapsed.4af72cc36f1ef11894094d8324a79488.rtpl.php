@@ -222,7 +222,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="construtoras"><i class="fa fa-circle-o" ></i>Construtoras</a></li>
-            <!-- <li><a href="fornecedores"><i class="fa fa-circle-o" ></i>Fornecedores</a></li> -->
+            <li><a href="usuarios"><i class="fa fa-circle-o" ></i>Usuários</a></li>
           </ul>
         </li>
       </ul>

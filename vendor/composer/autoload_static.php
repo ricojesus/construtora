@@ -20,10 +20,6 @@ class ComposerStaticInitc42ac5dc7b0b787538befe405ee9eb99
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
-        'N' => 
-        array (
-            'Notas\\' => 6,
-        ),
         'I' => 
         array (
             'Interop\\Container\\' => 18,
@@ -31,6 +27,10 @@ class ComposerStaticInitc42ac5dc7b0b787538befe405ee9eb99
         'F' => 
         array (
             'FastRoute\\' => 10,
+        ),
+        'C' => 
+        array (
+            'Construtora\\' => 12,
         ),
     );
 
@@ -47,10 +47,6 @@ class ComposerStaticInitc42ac5dc7b0b787538befe405ee9eb99
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'Notas\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/local/classes',
-        ),
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
@@ -58,6 +54,10 @@ class ComposerStaticInitc42ac5dc7b0b787538befe405ee9eb99
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'Construtora\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/local/classes',
         ),
     );
 

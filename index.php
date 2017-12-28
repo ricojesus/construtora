@@ -6,12 +6,14 @@ ini_set('display_errors', 1);
 require "vendor/autoload.php";
 
 use \Slim\App;
-use Notas\page;
-use Notas\Model\User;
-use Notas\Model\Nota;
-use Notas\Model\Cliente;
 use \local\Model;
-use Notas\controllers;
+use Construtora\page;
+use Construtora\Model\User;
+use Construtora\Model\Nota;
+use Construtora\Model\Cliente;
+use Construtora\Model\Usuario;
+use Construtora\Model\Construtora;
+use Construtora\controllers;
 
 $config = [
     'settings' => [
@@ -61,10 +63,85 @@ $app->post('/clientes/{id}', function ($request, $response, $args) {
 
 	$cliente->save();
 
-	header("location: /clientes");
+	header("location: /cliente/clientes");
 	exit;
 });
 
+
+$app->get('/construtoras', function () {
+
+	$construtoras = Construtora::listAll();
+
+	$page = new Page();
+	$page->setTpl("construtoras-list", array(
+		"construtoras"=>$construtoras
+	));
+
+});
+
+
+$app->get('/construtoras/{id}', function ($request, $response, $args) {
+
+	$construtora = new Construtora();
+
+	$construtora->get((int)$args['id']);
+
+	$page = new Page();
+	$page->setTpl("construtoras-edit", array(
+		"construtora"=>$construtora->getValues()
+	));
+});
+
+
+$app->post('/construtoras/{id}', function ($request, $response, $args) {
+
+	$construtora = new Construtora();
+
+	$construtora->get((int)$args['id']);	
+	$construtora->setData($_POST);
+
+	$construtora->save();
+
+	header("location: /construtora/construtoras");
+	exit;
+});
+
+$app->get('/usuarios', function () {
+
+	$usuarios = Usuario::listAll();
+
+	$page = new Page();
+	$page->setTpl("usuarios-list", array(
+		"usuarios"=>$usuarios
+	));
+
+});
+
+$app->get('/usuarios/{id}', function ($request, $response, $args) {
+
+	$usuario = new Usuario();
+
+	$usuario->get((int)$args['id']);
+
+	$page = new Page();
+	$page->setTpl("usuarios-edit", array(
+		"usuarios"=>$usuario->getValues()
+	));
+});
+
+
+$app->post('/usuarios/{id}', function ($request, $response, $args) {
+
+	$usuario = new Usuario();
+
+	$usuario->get((int)$args['id']);	
+	$usuario->setData($_POST);
+
+	$usuario->save();
+
+	header("location: /construtora/usuarios");
+	exit;
+});
 
 $app->run();
 

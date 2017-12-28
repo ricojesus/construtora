@@ -1,6 +1,6 @@
 {
     "name": "Notas Fiscais",
-    "description": "Sistema de Gestão de Notas Fiscais",
+    "description": "Sistema de Gestão de Construtoras",
     "authors": [
         {
             "name": "Ricardo Jesus",
@@ -15,7 +15,7 @@
 
     "autoload" : {
         "psr-4" : {
-            "Notas\\" : "vendor/local/classes"
+            "Construtora\\" : "vendor/local/classes"
         }
     }
 }
